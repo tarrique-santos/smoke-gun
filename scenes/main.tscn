@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bufcxha760247"]
+
+[ext_resource type="PackedScene" uid="uid://b32nnc71nxvnc" path="res://scenes/player.tscn" id="1_o5qli"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmqqp"]
+albedo_color = Color(0.8728726, 0.6307715, 0.28496087, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+size = Vector2(80, 30)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_p8web"]
+
+[node name="Main" type="Node3D" unique_id=1958021764]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1469863411]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1935665576]
+material_override = SubResource("StandardMaterial3D_kmqqp")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1201549335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05628319, 0.44988424, -0.2090452)
+shape = SubResource("WorldBoundaryShape3D_p8web")
+
+[node name="Player" parent="." unique_id=979833523 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.48694, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1735913908]
+transform = Transform3D(0.04071054, -0.99641615, -0.07414439, -0.0853709, -0.077403344, 0.9933382, -0.9955172, -0.034109555, -0.08821607, 34.48694, 9.495443, -0.032718614)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79887813]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)

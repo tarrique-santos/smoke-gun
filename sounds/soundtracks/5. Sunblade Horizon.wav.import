@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1xb5bdlj2j1x"
+path="res://.godot/imported/5. Sunblade Horizon.wav-e822b31f202d55800ed1f094712ecb2f.sample"
+
+[deps]
+
+source_file="res://sounds/soundtracks/5. Sunblade Horizon.wav"
+dest_files=["res://.godot/imported/5. Sunblade Horizon.wav-e822b31f202d55800ed1f094712ecb2f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
