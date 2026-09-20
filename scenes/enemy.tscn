@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://3p2yolyfl648"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yf5fn"]
+
+[node name="Enemy" type="StaticBody3D" unique_id=741849424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027551293, 0.81345844, -0.054591417)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2012196658]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=518132275]
+shape = SubResource("CylinderShape3D_yf5fn")

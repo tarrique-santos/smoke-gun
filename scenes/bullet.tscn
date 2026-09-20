@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dm0xtjmeewadi"]
+
+[ext_resource type="Script" uid="uid://bo8obrt1v7sy8" path="res://scripts/bullet.gd" id="1_mkf8s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yf5fn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+
+[node name="Bullet" type="Area3D" unique_id=780159524]
+transform = Transform3D(-0.0069123534, -2.0574246e-10, -0.19999811, 1.3891479e-07, -0.541, 0, -1.588985, -4.7295273e-08, 0.00087002566, 0, 0, 0)
+script = ExtResource("1_mkf8s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635458289]
+transform = Transform3D(0.9999583, 0, 0, 0, 0.10398542, 0.99457884, 7.450581e-09, -0.99457884, 0.10398542, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=656444004]
+transform = Transform3D(0.992, 2.6051397e-09, -3.4919212e-10, 0, 0.117508404, 0.9921556, 2.7709903e-09, -0.93262625, 0.12500894, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
