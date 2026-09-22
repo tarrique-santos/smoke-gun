@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c67vjievlxx8u"]
+
+[ext_resource type="Script" uid="uid://m3c6ivdm7gyg" path="res://scripts/player_2.gd" id="1_7nsvx"]
+[ext_resource type="PackedScene" uid="uid://deq2iqq1vsfkk" path="res://scenes/bala2.tscn" id="2_safxn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ifpnl"]
+radius = 0.7
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7nsvx"]
+top_radius = 0.7
+bottom_radius = 0.7
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_7nsvx")
+bullet_scene = ExtResource("2_safxn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ifpnl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_7nsvx")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.9945146, 0.1045979, 0, -0.1045979, 0.9945146, 0, 3, 5)
+
+[node name="Marker3D" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5347407, -1.4927843)
