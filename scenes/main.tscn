@@ -4,48 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://3p2yolyfl648" path="res://scenes/enemy.tscn" id="2_0wfyh"]
 [ext_resource type="AudioStream" uid="uid://dfooqq83lrxn6" path="res://sounds/soundtracks/3. Whispers in the Sand.wav" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c67vjievlxx8u" path="res://scenes/Player2.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://bafmawg2ggtme" path="res://scenes/hud_control.gd" id="5_tbgi4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmqqp"]
-albedo_color = Color(0.8728726, 0.6307715, 0.28496087, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
+albedo_color = Color(1, 1, 0.41568628, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
-size = Vector2(220, 40)
+[sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
+material = SubResource("StandardMaterial3D_jyhfs")
+size = Vector3(100, 1, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_o5qli"]
-size = Vector3(220, 1, 40)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
+size = Vector3(100, 1, 100)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jyhfs")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-material_override = SubResource("StandardMaterial3D_kmqqp")
-mesh = SubResource("PlaneMesh_g4v7s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07984811, 0.44988424, -0.04065895)
-shape = SubResource("BoxShape3D_o5qli")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.72134, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.914536, 1.7098467, 0)
-physics_material_override = SubResource("PhysicsMaterial_g2els")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1956863, 1.7098467, 0)
 
-[node name="soundtrack" type="AudioStreamPlayer3D" parent="."]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("4_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 0)
+
+[node name="soundtrack" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(-0.019110156, 0, -0.9998174, 0, 1, 0, 0.9998174, 0, -0.019110156, 0, 0, 0)
 stream = ExtResource("3_sugp2")
 autoplay = true
 
-[node name="Player" parent="." instance=ExtResource("4_jyhfs")]
-transform = Transform3D(-0.019110156, 0, 0.9998174, 0, 1, 0, -0.9998174, 0, -0.019110156, 100.95983, 1.8608351, 0)
-
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="HUDControl" type="Control" parent="HUD"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,9 +43,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+script = ExtResource("5_tbgi4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="HUD/Control"]
+[node name="Mira" type="Label" parent="HUD/HUDControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -71,3 +62,26 @@ grow_vertical = 2
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Vida" type="Label" parent="HUD/HUDControl"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -64.0
+offset_right = 160.0
+offset_bottom = -25.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Vida: 5/5"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_tbgi4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_jyhfs")

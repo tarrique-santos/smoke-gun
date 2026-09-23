@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b32nnc71nxvnc"]
+[gd_scene load_steps=6 format=3 uid="uid://b32nnc71nxvnc"]
 
 [ext_resource type="Script" uid="uid://c1tj2hwebylcj" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bpw73v6fvjqtw" path="res://scripts/camera.gd" id="2_g2els"]
@@ -12,36 +12,36 @@ albedo_color = Color(0.34100246, 0.5067925, 0.009516412, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_es6ng"]
 size = Vector3(1, 2.100708, 1)
 
-[node name="Player" type="CharacterBody3D" unique_id=979833523]
+[node name="Player" type="CharacterBody3D"]
 transform = Transform3D(-0.0027708218, 0, 0.9999962, 0, 1, 0, -0.9999962, 0, -0.0027708218, 0, 0, 0)
 script = ExtResource("1_3vyb7")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1666176881]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.04071054, -0.9964162, -0.0741444, -0.0853709, -0.07740335, 0.9933381, -0.9955172, -0.034109555, -0.08821608, 34.48694, 9.495443, -0.032718614)
 visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=171556199]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.567039, 0)
 shape = SubResource("BoxShape3D_wfe2c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=567557687]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550354, 0)
 material_override = SubResource("StandardMaterial3D_82n17")
 mesh = SubResource("BoxMesh_es6ng")
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=458618834]
+[node name="CameraPivot" type="Node3D" parent="."]
 
-[node name="Camera3D2" type="Camera3D" parent="CameraPivot" unique_id=263583610]
+[node name="Camera3D2" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(0.016497489, 0.9865547, 0.16259731, 3.083984e-09, -0.16261944, 0.98668885, 0.999864, -0.01627787, -0.0026828137, 0, 12.332727, 0)
 current = true
 script = ExtResource("2_g2els")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=529208997]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1979065, 2, 0)
 size = Vector3(1.3822632, 1, 1)
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1699382912]
+[node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(-0.83892685, 0, 0.5442444, 0, 1, 0, -0.5442444, 0, -0.83892685, 4.1457195, 5.103949, 0.011487095)
 
-[node name="Muzzle" type="Marker3D" parent="." unique_id=1341501145]
+[node name="Muzzle" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9999924, 0, 0.0055416436)

@@ -11,6 +11,11 @@ extends CharacterBody3D
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var marker: Marker3D = $CameraPivot/Marker3D
 
+@export var health := 5
+@export var invulnerability_time := 0.5
+
+var invulnerable := false
+
 var camera_yaw := 0.0
 var camera_pitch := -0.3
 
@@ -108,3 +113,23 @@ func shoot():
 
 	bullet.global_position = marker.global_position
 	bullet.direction = shoot_direction
+
+func take_damage(amount):
+	if invulnerable:
+		return
+
+	health -= amount
+
+	if health <= 0:
+		die()
+		return
+
+	invulnerable = true
+
+	await get_tree().create_timer(invulnerability_time).timeout
+
+	invulnerable = false
+
+
+func die():
+	queue_free()
