@@ -132,4 +132,5 @@ func take_damage(amount):
 
 
 func die():
+	get_tree().change_scene_to_file("res://scenes/screens/gameOver.tscn")
 	queue_free()

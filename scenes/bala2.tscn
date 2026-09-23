@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://deq2iqq1vsfkk"]
+[gd_scene format=3 uid="uid://deq2iqq1vsfkk"]
 
 [ext_resource type="Script" uid="uid://dfd218r6ppny4" path="res://scripts/bala_2.gd" id="1_82ckp"]
 
