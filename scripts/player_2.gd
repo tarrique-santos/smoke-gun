@@ -1,6 +1,7 @@
 
 extends CharacterBody3D
 
+
 @export var speed := 10.0
 @export var gravity := 20.0
 @export var jump_force := 12.0
@@ -10,9 +11,10 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var marker: Marker3D = $CameraPivot/Marker3D
+@onready var mesh = $MeshInstance3D
 
 @export var health := 5
-@export var invulnerability_time := 0.5
+@export var invulnerability_time := 1
 
 var invulnerable := false
 
@@ -126,11 +128,26 @@ func take_damage(amount):
 
 	invulnerable = true
 
-	await get_tree().create_timer(invulnerability_time).timeout
+	var blink_time := 0.1
+	var elapsed := 0.0
 
+	while elapsed < invulnerability_time:
+		mesh.visible = false
+		await get_tree().create_timer(blink_time).timeout
+		elapsed += blink_time
+
+		if elapsed >= invulnerability_time:
+			break
+
+		mesh.visible = true
+		await get_tree().create_timer(blink_time).timeout
+		elapsed += blink_time
+
+	mesh.visible = true
 	invulnerable = false
 
 
 func die():
 	get_tree().change_scene_to_file("res://scenes/screens/gameOver.tscn")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	queue_free()

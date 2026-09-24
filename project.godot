@@ -15,7 +15,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="GunSmoke"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
+
+[autoload]
+
+ScoreManager="*res://scripts/score_manager.gd"
 
 [display]
 
