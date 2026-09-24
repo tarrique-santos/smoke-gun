@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bufcxha760247"]
+[gd_scene load_steps=16 format=3 uid="uid://bufcxha760247"]
 
 [ext_resource type="Script" uid="uid://m5ruqhmf30sr" path="res://scripts/main.gd" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://3p2yolyfl648" path="res://scenes/enemy.tscn" id="2_0wfyh"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://c361i5h55uuhl" path="res://scripts/score_manager.gd" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://bafmawg2ggtme" path="res://scripts/hud_control.gd" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://662ei0mxkp27" path="res://scripts/enemy_spawner.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://cwmd4ertnkstc" path="res://models/builds/Large Building Frame C.fbx" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://dpsyr52yvs15v" path="res://models/builds/Large Building Frame A.fbx" id="9_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://d0t8v5jtm1xsd" path="res://models/builds/Large Building Frame B.fbx" id="10_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://d0qejwvcdposl" path="res://models/builds/Large Building Frame D.fbx" id="11_ya4ey"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
 albedo_color = Color(1, 1, 0.41568628, 1)
@@ -18,6 +22,8 @@ size = Vector3(100, 1, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
 size = Vector3(100, 1, 100)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ya4ey"]
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jyhfs")
 
@@ -25,7 +31,7 @@ script = ExtResource("1_jyhfs")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.72134, 0)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("4_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 9, 2, 0)
 
 [node name="soundtrack" type="AudioStreamPlayer3D" parent="Player"]
 transform = Transform3D(-0.019110156, 0, -0.9998174, 0, 1, 0, 0.9998174, 0, -0.019110156, 0, 0, 0)
@@ -129,3 +135,96 @@ enemy_scene = ExtResource("2_0wfyh")
 max_waves = 2
 min_spawn_distance_from_player = 30.0
 max_spawn_distance_from_player = 40.0
+
+[node name="Paredes" type="Node" parent="."]
+
+[node name="Large Building Frame C2" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 22.18757, 0, -52.80849)
+
+[node name="Large Building Frame C3" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -11.456123, 0, -52.548428)
+
+[node name="Large Building Frame C4" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, -53.34443, 0, -29.902065)
+
+[node name="Large Building Frame C5" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(1.788732e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.788732e-08, -19.186275, 0, 50.992958)
+
+[node name="Large Building Frame C" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 51.98531, 0, 0)
+
+[node name="Large Building Frame A" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 52.137672, 0.5361943, 17.36669)
+
+[node name="Large Building Frame A2" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.05506149, 0, 1.3989168, 0, 1.4000001, 0, -1.3989168, 0, 0.05506149, 40.34771, 0.5361943, -52.59152)
+
+[node name="Large Building Frame A3" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(0.13192177, 0, -1.3937707, 0, 1.4000001, 0, 1.3937707, 0, 0.13192177, -3.1329212, 0.5361943, 50.627903)
+
+[node name="Large Building Frame A4" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(-1.3865584, 0, -0.19353542, 0, 1.4000001, 0, 0.19353542, 0, -1.3865584, -51.812176, 0.5361943, -13.688488)
+
+[node name="Large Building Frame A5" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(-1.399966, 0, -0.009773582, 0, 1.4000001, 0, 0.009773582, 0, -1.399966, -51.576458, 0.53619623, 24.465769)
+
+[node name="Large Building Frame A6" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(-0.025435165, 0, -1.3997691, 0, 1.4000001, 0, 1.3997691, 0, -0.025435165, 15.383236, 0.5361943, 49.461334)
+
+[node name="Large Building Frame B" parent="Paredes" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 52.485584, 0.45157528, -15.579791)
+
+[node name="Large Building Frame B2" parent="Paredes" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(0.19784224, 0, 1.3859504, 0, 1.4, 0, -1.3859504, 0, 0.19784224, 6.6989684, 0.45157337, -53.05324)
+
+[node name="Large Building Frame B3" parent="Paredes" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(-1.3994439, 0, -0.03945665, 0, 1.4, 0, 0.03945665, 0, -1.3994439, -51.62926, 0.45157337, 5.2466984)
+
+[node name="Large Building Frame B4" parent="Paredes" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(-0.0051556826, 0, -1.3999906, 0, 1.4000001, 0, 1.3999906, 0, -0.0051556826, -37.12417, 0.45157337, 51.422123)
+
+[node name="Large Building Frame C6" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 51.98531, 0, 33.24818)
+
+[node name="Large Building Frame B5" parent="Paredes" instance=ExtResource("10_eb6dy")]
+transform = Transform3D(0.07004922, 0, -1.3982464, 0, 1.4, 0, 1.3982464, 0, 0.07004922, 34.412, 0.45157528, 48.309002)
+
+[node name="Large Building Frame C7" parent="Paredes" instance=ExtResource("8_choun")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 51.98531, 0, -33.407417)
+
+[node name="Large Building Frame A7" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(-0.0891747, 0, 1.397157, 0, 1.4, 0, -1.397157, 0, -0.0891747, -26.34568, 0.5361943, -52.59152)
+
+[node name="Large Building Frame D" parent="Paredes" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 52.216923, 0.550807, -43.59022)
+
+[node name="Large Building Frame D2" parent="Paredes" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-1.3771585, 0, -0.25186154, 0, 1.4, 0, 0.25186154, 0, -1.3771585, -50.000675, 0.550807, 41.883938)
+
+[node name="Large Building Frame D3" parent="Paredes" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-0.2859834, 0, -1.3704791, 0, 1.3999999, 0, 1.3704791, 0, -0.2859834, 53.00361, 0.55080795, 44.71292)
+
+[node name="Large Building Frame D4" parent="Paredes" instance=ExtResource("11_ya4ey")]
+transform = Transform3D(-0.05198496, 0, 1.3990345, 0, 1.4, 0, -1.3990345, 0, -0.05198496, -43.33887, 0.550807, -51.219124)
+
+[node name="Large Building Frame A8" parent="Paredes" instance=ExtResource("9_ya4ey")]
+transform = Transform3D(-1.3989996, 0, 0.05291284, 0, 1.4, 0, -0.05291284, 0, -1.3989996, -52.253006, 0.53619623, -47.637295)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0572891, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Paredes/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 11.551056, 0, 0, 0, 103.33849, 47.056866, 3.7951746, 0)
+shape = SubResource("BoxShape3D_ya4ey")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Paredes/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 103.33849, 0, 11.551056, 0, -1, 0, -4.517069e-06, -0.117630005, 1.7378855, -47.463875)
+shape = SubResource("BoxShape3D_ya4ey")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Paredes/StaticBody3D"]
+transform = Transform3D(-0.04532816, 0, 103.23228, 0, 11.551057, 0, -0.9989721, 0, -4.684144, -0.117630005, 4.064069, 45.72282)
+shape = SubResource("BoxShape3D_ya4ey")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Paredes/StaticBody3D"]
+transform = Transform3D(0.9994066, 0, 3.5595958, 0, 11.551057, 0, -0.034445982, 0, 103.27717, -46.646347, 1.7378855, 0)
+shape = SubResource("BoxShape3D_ya4ey")

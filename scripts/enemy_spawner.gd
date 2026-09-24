@@ -94,4 +94,4 @@ func finish_game():
 
 	await get_tree().create_timer(final_wave_delay).timeout
 
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://scenes/screens/game_win.tscn")

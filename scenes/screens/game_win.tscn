@@ -1,15 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfap4k0x0vdb7"]
+[gd_scene load_steps=2 format=3 uid="uid://cyt6wbh4yskfw"]
 
-[ext_resource type="Script" uid="uid://b2l0yc15v1kyy" path="res://scripts/screen.gd" id="1_i3cht"]
+[ext_resource type="Script" uid="uid://b2l0yc15v1kyy" path="res://scripts/screen.gd" id="1_odhg4"]
 
-[node name="GameOver" type="Control"]
+[node name="GameWin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i3cht")
+script = ExtResource("1_odhg4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,7 +29,7 @@ offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "Game over"
+text = "Você Ganhou!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -79,7 +79,7 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Jogar"
+text = "Jogar Novamente"
 
 [node name="Sair" type="Button" parent="."]
 layout_mode = 1

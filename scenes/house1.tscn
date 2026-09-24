@@ -1,8 +1,15 @@
-[gd_scene format=3 uid="uid://c2mod28c2ih3e"]
+[gd_scene load_steps=3 format=3 uid="uid://c2mod28c2ih3e"]
 
 [ext_resource type="PackedScene" uid="uid://dpsyr52yvs15v" path="res://models/builds/Large Building Frame A.fbx" id="1_lubih"]
 
-[node name="House1" type="Node3D" unique_id=1229133402]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lubih"]
+size = Vector3(1.0166264, 1, 1)
 
-[node name="Large Building Frame A" parent="." unique_id=1714221825 instance=ExtResource("1_lubih")]
+[node name="House1" type="StaticBody3D"]
+
+[node name="Large Building Frame A" parent="." instance=ExtResource("1_lubih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8022685, 0, -0.78702784)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(8.86838, 0, 0, 0, 7.1142006, 0, 0, 0, 14.257013, -0.27266985, 3.2296262, -1.7158589)
+shape = SubResource("BoxShape3D_lubih")
